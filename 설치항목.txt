@@ -1,0 +1,8 @@
+메뉴 확장을 누르고
+code runner 설치,  live server 설치
+
+cmd에서 pip install flask 
+
+C:\Users\ezen>cd C:\Users\ezen\Documents\GitHub\python_ezen\Server
+
+C:\Users\ezen\Documents\GitHub\python_ezen\Server>set Flask_APP=index

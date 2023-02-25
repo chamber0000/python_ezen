@@ -6,3 +6,12 @@ cmd에서 pip install flask
 C:\Users\ezen>cd C:\Users\ezen\Documents\GitHub\python_ezen\Server
 
 C:\Users\ezen\Documents\GitHub\python_ezen\Server>set Flask_APP=index
+
+html : 구조 
+css : 디자인 
+
+구글에서 bootstrap 검색
+제일 첫번재 링크 진입  버전은 5.02 변경
+css  링크태그 copy
+
+5.3버전에서는 download의 CDN  링크태그 copy

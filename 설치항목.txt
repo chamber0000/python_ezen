@@ -15,3 +15,137 @@ css : 디자인
 css  링크태그 copy
 
 5.3버전에서는 download의 CDN  링크태그 copy
+
+
+3/11 수업
+구글에서 webdriver 검색하여 다운로드 
+크롬의 설정에서 버전 정보 확인후, 맞는 버전으로 다운로드. 
+
+구글 mysql 검색
+아래에서 MySQL Community (GPL) Downloads »
+MySQL Installer for Windows
+No thanks, just start my download.
+
+custorm 으로 설치 
+server / workbench 선택하여 excute 실행  Visual++ 도 설치
+패스워드 입력
+왼쪽 하단 root 누르고 패스워드 입력
+shemas tab 
+
+cmd 내용들
+
+C:\Users\ezen>mysql -u root -p
+Enter password: ******
+
+
+mysql> create database test;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use test;
+Database changed
+mysql> CREATE TABLE user (id
+    -> varchar(16) primary key,
+    -> password varchar(16) not null,
+    -> name varchar(8),
+    -> gender int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> Insert Into user(id,password,name,gender) values('test','1234','test',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from user;
++------+----------+------+--------+
+| id   | password | name | gender |
++------+----------+------+--------+
+| test | 1234     | test |      1 |
++------+----------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into user values('test2','1234','test2',0),('test3','4567','test3',1);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from user;
++-------+----------+-------+--------+
+| id    | password | name  | gender |
++-------+----------+-------+--------+
+| test  | 1234     | test  |      1 |
+| test2 | 1234     | test2 |      0 |
+| test3 | 4567     | test3 |      1 |
++-------+----------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update user set `password`='1111'where `id`='test2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from user;
++-------+----------+-------+--------+
+| id    | password | name  | gender |
++-------+----------+-------+--------+
+| test  | 1234     | test  |      1 |
+| test2 | 1111     | test2 |      0 |
+| test3 | 4567     | test3 |      1 |
++-------+----------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from user where `id`='test2';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from user;
++-------+----------+-------+--------+
+| id    | password | name  | gender |
++-------+----------+-------+--------+
+| test  | 1234     | test  |      1 |
+| test3 | 4567     | test3 |      1 |
++-------+----------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from user;
++-------+----------+-------+--------+
+| id    | password | name  | gender |
++-------+----------+-------+--------+
+| test  | 1234     | test  |      1 |
+| test3 | 4567     | test3 |      1 |
++-------+----------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> delete from user;
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select * from user;
+Empty set (0.00 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| user           |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> drop table user;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> select * from user;
+ERROR 1146 (42S02): Table 'test.user' doesn't exist
+
+
+
